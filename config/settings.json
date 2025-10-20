@@ -1,0 +1,49 @@
+{
+  "llm_providers": {
+    "openai": {
+      "name": "OpenAI",
+      "models": ["gpt-3.5-turbo", "gpt-4"],
+      "default_model": "gpt-3.5-turbo",
+      "max_tokens": 4000,
+      "temperature": 0.1
+    }
+  },
+  "data_extraction": {
+    "pdf_settings": {
+      "extract_images": true,
+      "extract_tables": true,
+      "extract_text": true,
+      "max_pages": 100
+    },
+    "web_settings": {
+      "timeout": 30,
+      "user_agent": "DisassemblyInstructionGenerator/1.0",
+      "follow_redirects": true,
+      "max_depth": 3
+    }
+  },
+  "instruction_generation": {
+    "include_safety_warnings": true,
+    "include_tool_requirements": true,
+    "include_time_estimates": true,
+    "include_difficulty_ratings": true,
+    "include_part_identification": true,
+    "max_steps": 50,
+    "detail_level": "comprehensive"
+  },
+  "output_format": {
+    "json_schema": {
+      "version": "1.0",
+      "structure": {
+        "metadata": ["product_info", "extraction_source", "generation_timestamp"],
+        "instructions": ["steps", "safety_warnings", "tool_requirements", "time_estimates", "difficulty_ratings"]
+      }
+    }
+  },
+  "automotive_specific": {
+    "common_tools": ["socket_wrench", "torx_driver", "phillips_screwdriver", "flat_screwdriver", "pliers", "wire_cutters"],
+    "safety_requirements": ["eye_protection", "gloves", "proper_lighting", "ventilation"],
+    "difficulty_levels": ["beginner", "intermediate", "advanced", "expert"],
+    "time_categories": ["quick", "moderate", "extensive", "complex"]
+  }
+}
